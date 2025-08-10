@@ -1,0 +1,20 @@
+package zerobase.weather.config;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+//전역 예외처리
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Exception.class)
+    public Exception handleAllException(){
+        System.out.println("글로벌 핸들러 에러");
+        return new Exception();
+    }
+
+
+}
